@@ -1,0 +1,200 @@
+/*
+*
+* General styles
+*
+*/
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.grad {
+    background: #2980b9; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#2ecc71, #2980b9, #8e44ad); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#2ecc71, #2980b9, #8e44ad); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#2ecc71, #2980b9, #8e44ad); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#2ecc71, #2980b9, #8e44ad); /* Standard syntax */
+}
+
+#err {
+	color: #e67e22;	
+}
+
+a,
+a:hover {
+	text-decoration: none;
+}
+
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+.jumbotron h1, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	color: white;
+}
+
+.jumbotron h1 {
+	font-family: 'Sofia', cursive, Helvetica, Arial, sans-serif;
+	margin: 5px;
+}
+
+input[type="text"]{
+	background-color: transparent;
+	border: 0;
+	border-bottom: 2px solid rgba(255, 255, 255, 0.5);	
+	color: white;
+	padding-left: 10px;
+}
+
+input:focus,
+input:active {
+	border-bottom: 2px solid rgba(255, 255, 255, 1);
+}
+
+::-webkit-input-placeholder {
+   color: rgba(255, 255, 255, 0.5);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(255, 255, 255, 0.5);  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(255, 255, 255, 0.5);  
+}
+
+:-ms-input-placeholder {  
+   color: rgba(255, 255, 255, 0.5);  
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+/*
+*
+* View Styles
+*
+*/
+
+.jumbotron {
+	background-color: transparent;
+}
+
+#logo {
+	display: none;
+	left: 5px;
+	position: fixed;
+	top: 5px;
+}
+
+
+#homeView,
+#choosePlayerNames,
+#startGame {
+	display: table;
+	height: 100vh;
+	width: 100%;
+}
+
+.cover {
+	display: table-cell;
+	height: 100vh;
+	min-height: 100%;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+#gameArea {
+	height: auto;
+	width: 100%;
+}
+
+/*
+*
+* Button styles
+*
+*/
+
+.btn-transparent {
+	background-color: transparent;
+	border: 2px solid white;
+	color: white;
+	margin: 20px;
+}
+
+.btn-transparent-success {
+	background-color: #2ecc71;
+	border: 2px solid #2ecc71;
+	color: white;
+}
+
+#soundIcon {
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-size: 34px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+}
+
+#top {
+	bottom: 20px;
+	display: none;
+	opacity: 0.7;
+	position: fixed;
+	right: 20px;
+}
+
+#top:hover {
+	opacity: 1;
+}
+
+.btn:focus,
+.btn:hover {
+	color: white;
+}
+
+.btnGame {
+	font-size: 18px;
+	height: 50px; 
+	margin: 20px; 
+	padding: 0; 
+	width: 50px; 
+}
+
+/*
+*
+* Media queries
+*
+*/
+
+@media only screen and (min-width: 1200px) {
+	.btnGame {
+		font-size: 36px;
+		height: 100px; 
+		width: 100px; 
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	input[type="text"]{
+		margin-top: 10px;
+		text-align: center;
+	}
+
+}

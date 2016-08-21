@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>TicTacToe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  	<meta name="robots" content="index,follow">  
+  	<meta name="description" content="A classic game of tic tac toe with new design.">
+  	<meta name="subject" content="Game">
+ 	<meta name="keywords" content="tic tac toe, game, web app">
+  	<meta name="author" content="Cristian Rosoi">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta name="apple-mobile-web-app-capable" content="yes">
+  	<meta name="apple-mobile-web-app-status-bar-style" content="black">   
+  	<meta name="mobile-web-app-capable" content="yes">
+	
+	<link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
+  	<link rel="manifest" href="manifest.json">
+	<link rel="icon" sizes="192x192" href="img/icon-192x192.png">
+  	<link rel="icon" sizes="128x128" href="img/icon-128x128.png">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/animate.css" type="text/css">	
+
+	<link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet">	
+
+</head>
+
+<body class="grad">
+
+<!--<a href="#homeView"><div id="top" class="btn btn-transparent hidden-xs">Top</div></a>-->
+<!--<a href="#homeView"><div id="logo" class="btn btn-transparent">Tic Tac Toe</div></a>-->
+
+<audio id="GameMusic">
+	<!-- Music Credits -->
+	<!--
+	"Babylon" Kevin MacLeod (incompetech.com)
+	Licensed under Creative Commons: By Attribution 3.0 License
+	http://creativecommons.org/licenses/by/3.0/
+	-->
+  <source src="sound/music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<span id="soundIcon" class="glyphicon glyphicon-volume-off" aria-hidden="true" onclick="app.soundToggle();"></span>
+
+<section id="homeView">
+	<div class="cover">
+		<div class="jumbotron">
+			<h1 class="animated fadeInDown">Tic Tac Toe Game</h1>
+			<a href="#choosePlayerNames"><div class="btn btn-transparent animated fadeInUp">Play vs Friend</div></a>
+		</div>
+	</div>
+</section>
+
+<div id="choosePlayerNames">
+	<div class="cover">
+		<div class="jumbotron">
+		
+		<h2>Choose Names</h2>
+		
+		<p>		
+		Player 1 ( X ):
+		<input id="p1Name" type="text" placeholder="Bill" maxlength="20" pattern="/^[A-Za-z ]+$/"/>
+		</p>
+
+		<p>
+		Player 2 ( 0 ):
+		<input id="p2Name" type="text" placeholder="Bob" maxlength="20" pattern="/^[A-Za-z ]+$/" />
+		</p>
+		
+		<span id="err"></span><br>
+
+		<a href="#startGame"><div class="btn btn-transparent">Skip this step</div></a>
+		<a href="javascript:;" id="continueBtn" class="btn btn-transparent disabled" onclick="app.playerNames();">Continue</a>
+		
+		</div>
+	
+	</div>
+
+</div>
+
+<section id="startGame">
+<div class="cover">
+	<div class="jumbotron">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 id="response">Player 1 turn</h2>
+					<h4 id="score">Player 1: ( 0 ) | Player 2: ( 0 )</h4>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">				
+				<div id="gameArea" >
+					<input name="box" id="btnTopLeft" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnTopMiddle" class="btn btnGame btn-transparent " type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnTopRight" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<br>
+					<input name="box" id="btnMiddleLeft" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnMiddleMiddle" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnMiddleRight" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<br>
+					<input name="box" id="btnBottomLeft" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnBottomMiddle" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<input name="box" id="btnBottomRight" class="btn btnGame btn-transparent" type="button" onclick="app.play(this);" value="" />
+					<br>
+					<div class="btn btn-transparent" onclick="app.playAgain();">Play Again</div>
+				</div>							
+			</div>
+		</div><!--container-->
+	</div><!--jumbotron-->
+</div><!--cover-->
+</section>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/smooth.js" type="text/javascript"></script>
+<script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>
